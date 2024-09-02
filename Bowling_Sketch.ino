@@ -124,7 +124,7 @@ void loop()
 void Detecting_Location(int Left, int Right, int Front, int Back) {
   // First Condition -------> Two Cases are handled here, When our Robot in B Looking to the front and When our Robot in C Looking to the Right
   if (Left == 1 && Front == 1) {
-    Serial.println("Move straight 22cm");
+    Serial.println("Move straight 22cm and we are in C");
     Move_with_distance_forwrd(22);
     delay(1000);
 
@@ -140,23 +140,10 @@ void Detecting_Location(int Left, int Right, int Front, int Back) {
       Serial.println("We Are in A");
       delay(1000);
       Move_with_distance_forwrd(7); // we modify the Robot's position to be in front of the pins
-    } else if (Back == 1 && Left == 0 && Front == 0) { // we were in B
-      Serial.println("we are in A");
-      do {
-        Move_with_distance_forwrd(0.5);
-      } while (Back == 1 && Left == 0 && Right == 0 && Front == 0); // we make sure that the Robot leaves completely to the serving Area A
-
-      Serial.println("we are in A");
-      delay(1000);
-      rotate_with_number_of_quarters_counter_cloockwise(1); // we modify the Robot's position to be in front of the pins
-      delay(1000);
-      Move_with_distance_forwrd(20);
-      delay(1000);
-      rotate_with_number_of_quarters_cloockwise(1);
-      Serial.println("We Are in Front of the Pins");
-    }
+    } 
   }
-
+       //EDIT
+// i deleted the other condition when the robot was in B facing the A
   // Second Condition -------> Two Cases are handled here, When our Robot in B Looking to the Right and When our Robot in C Looking to the Front
   else if (Right == 1 && Front == 1) {
     Serial.println("Move straight 22cm");
@@ -175,21 +162,10 @@ void Detecting_Location(int Left, int Right, int Front, int Back) {
       Serial.println("We Are in A");
       delay(1000);
       Move_with_distance_forwrd(7); // we modify the Robot's position to be in front of the pins
-    } else if (Back == 1 && Right == 0 && Front == 0) { // we were in C
-      do {
-        Move_with_distance_forwrd(0.5);
-      } while (Back == 1 && Left == 0 && Right == 0 && Front == 0); // we make sure that the Robot leaves completely to the serving Area A
-
-      Serial.println("we are in A");
-      delay(1000);
-      rotate_with_number_of_quarters_cloockwise(1); // we modify the Robot's position to be in front of the pins
-      delay(1000);
-      Move_with_distance_forwrd(20);
-      delay(1000);
-      rotate_with_number_of_quarters_counter_cloockwise(1);
-      Serial.println("We Are in Front of the Pins");
     }
   }
+       //EDIT
+       //i deleted the other condition when the robot was in c facing the A
 
   // Third Condition -------> Two Cases are handled here, When our Robot in C Looking to the Back and When our Robot in B Looking to the Right
   else if (Left == 1 && Back == 1) {
